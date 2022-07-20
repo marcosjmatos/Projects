@@ -1,7 +1,7 @@
 import time
 
-import numpy as np
 import pygame
+import numpy as np
 
 pygame.init()
 
