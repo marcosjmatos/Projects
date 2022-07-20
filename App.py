@@ -1,3 +1,5 @@
+import sys
+from telnetlib import OUTMRK
 import time
 
 import pygame
@@ -42,10 +44,16 @@ while True:
     ev = pygame.event.get()
 
     for event in ev:
+        # Cerramos la APP
+        if event.type == pygame.QUIT:
+            pygame.quit()
+            sys.exit()
 
-        # detectamos si se presiona una tecla,
+
+        # detectamos si se presiona espacio,
         if event.type == pygame.KEYDOWN:
-            Pausar_Ejecucion = not Pausar_Ejecucion
+            if event.key == pygame.K_SPACE:
+                Pausar_Ejecucion = not Pausar_Ejecucion
 
         # detectamos si se presiona el mouse
         mouse_click = pygame.mouse.get_pressed()
@@ -90,3 +98,4 @@ while True:
 
     # Actualizamos la Pantalla.
     pygame.display.flip()
+
